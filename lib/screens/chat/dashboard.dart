@@ -10,6 +10,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../const_config/text_config.dart';
 
+
+
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
@@ -59,14 +61,14 @@ class _DashboardState extends State<Dashboard> {
                 ),
 
                 if(selectedIndex == 2)
-                IconButton(
-                    onPressed: (){
-                      final auth = FirebaseAuth.instance;
-                      auth.signOut();
-                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>const SignUp()), (route) => false);
-                    },
-                    icon: const Icon(Icons.logout)
-                )
+                  IconButton(
+                      onPressed: (){
+                        final auth = FirebaseAuth.instance;
+                        auth.signOut();
+                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>const SignUp()), (route) => false);
+                      },
+                      icon: const Icon(Icons.logout)
+                  )
               ],
             ),
             const SizedBox(height: 15,),
@@ -80,7 +82,7 @@ class _DashboardState extends State<Dashboard> {
                 },
                 children: const [
                   DiscoverPage(),
-                  ChatsPage(),
+                  //ChatsPage(),
                   ProfilePage(),
                 ],
               ),
@@ -88,7 +90,7 @@ class _DashboardState extends State<Dashboard> {
           ],
         ),
       ),
-      
+
       bottomNavigationBar: Material(
         clipBehavior: Clip.hardEdge,
         borderRadius: const BorderRadius.only(
@@ -102,9 +104,9 @@ class _DashboardState extends State<Dashboard> {
           onItemSelected: (index) {
             setState(() {
               if((selectedIndex-index).abs()>1)
-                {
-                  pageViewController.jumpToPage(index);
-                }
+              {
+                pageViewController.jumpToPage(index);
+              }
               pageViewController.animateToPage(
                 index,
                 duration: const Duration(milliseconds: 300),
@@ -129,7 +131,7 @@ class _DashboardState extends State<Dashboard> {
           ],
         ),
       ),
-      
+
     );
   }
 }

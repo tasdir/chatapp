@@ -14,12 +14,14 @@ class MessageModel {
   String? message;
   String? uuid;
   String? name;
+  String? touserName;
   Timestamp? time;
 
   MessageModel({
     this.message,
     this.uuid,
     this.name,
+    this.touserName,
     this.time,
   });
 
@@ -27,6 +29,7 @@ class MessageModel {
     message: json["message"],
     uuid: json["uuid"],
     name: json["name"],
+    touserName: json["touserName"],
     time: json["time"],
   );
 
@@ -34,11 +37,12 @@ class MessageModel {
     "message": message,
     "uuid": uuid,
     "name": name,
+    "touserName" : touserName,
     "time": time,
   };
 
   @override
   String toString() {
-    return 'MessageModel{message: $message, uuid: $uuid, name: $name, time: $time}';
+    return 'MessageModel{message: $message, uuid: $uuid, name: $name, touserName: $touserName, time: $time}';
   }
 }

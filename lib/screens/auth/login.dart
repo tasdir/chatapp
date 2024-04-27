@@ -82,8 +82,12 @@ class _LoginPageState extends State<LoginPage> {
                                     email: emailController.text.trim(),
                                     password: passwordController.text.trim()
                                 ).then((value) {
-                                  if(value.user != null)
+                                  final user = value.user;
+                                  if(user != null)
                                   {
+
+                                    print(user.metadata.lastSignInTime);
+
                                     showSnackBar(
                                         context: context,
                                         title: "Successful",

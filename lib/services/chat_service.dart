@@ -7,19 +7,19 @@ class ChatService{
   
   final auth = FirebaseAuth.instance;
   final firebase = FirebaseFirestore.instance;
-  
-  
-  Future<void> sendChatMessage({required String message})async{
-    var messageModel = MessageModel(
-      name: auth.currentUser!.email.toString(),
-      message: message,
-      uuid: auth.currentUser!.uid.toString(),
-      time: Timestamp.now()
-    );
-    
-    await firebase.collection('chat').add(messageModel.toMap());
-    
-    
+
+
+  Future<void> sendChatMessage({required String message , required String touserName}) async {
+    var messageModel = {
+      'message': message,
+      'to': touserName,
+      'uuid': FirebaseAuth.instance.currentUser!.uid,
+      'time': Timestamp.now(),
+    };
+    await FirebaseFirestore.instance.collection('chat').add(messageModel);
+
   }
+
+
   
 }
