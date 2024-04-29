@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../const_config/text_config.dart';
+import 'chat_tabs/chatlist.dart';
 
 
 
@@ -82,7 +83,7 @@ class _DashboardState extends State<Dashboard> {
                 },
                 children: const [
                   DiscoverPage(),
-                  //ChatsPage(),
+                  ChatListPage(),
                   ProfilePage(),
                 ],
               ),
